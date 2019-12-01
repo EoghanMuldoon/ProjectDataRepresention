@@ -8,12 +8,12 @@ class  Create extends React.Component {
     this.state = {Title: ''};
     this.state={Year:''};
     this.state={Genre:''};
-    this.state={Poster:''};
+    this.state={Cover:''};
 
     this.handleChangeGameTitle = this.handleChangeGameTitle.bind(this);
     this.handleChangeGameYear = this.handleChangeGameYear.bind(this);
     this.handleChangeGameGenre = this.handleChangeGameGenre.bind(this);
-    this.handleChangeGamePoster = this.handleChangeGamePoster.bind(this);
+    this.handleChangeGameCover = this.handleChangeGameCover.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -30,19 +30,19 @@ class  Create extends React.Component {
     this.setState({Genre: e.target.value});
   }
 
-  handleChangeGamePoster(e) {
-    this.setState({Poster: e.target.value});
+  handleChangeGameCover(e) {
+    this.setState({Cover: e.target.value});
   }
 
   handleSubmit(e) {
-    alert(this.state.Title +"  " + this.state.Year+ " "+this.state.Genre+ " "+this.state.Poster);
+    alert(this.state.Title +"  " + this.state.Year+ " "+this.state.Genre+ " "+this.state.Cover);
     e.preventDefault();
       
     const newgame={
         title: this.state.Title,
         year: this.state.Year,
         genre: this.state.Genre,
-        poster: this.state.Poster
+        cover: this.state.Cover
       }
       
     axios.post('http://localhost:4000/api/games', newgame)
@@ -53,7 +53,7 @@ class  Create extends React.Component {
       Title:'',
       Year:'',
       Genre:'',
-      Poster:''
+      Cover:''
     });
   }
 
@@ -101,13 +101,13 @@ class  Create extends React.Component {
 
           <div className='form-group'>
             <label>
-            Game Poster URL:
+            Game Cover URL:
             </label>
             <textarea 
               type="text" 
               className="form-control"
-              value={this.state.Poster} 
-              onChange={this.handleChangeGamePoster} 
+              value={this.state.Cover} 
+              onChange={this.handleChangeGameCover} 
             />
           </div>
           

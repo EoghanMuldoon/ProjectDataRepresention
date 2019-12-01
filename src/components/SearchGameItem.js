@@ -26,7 +26,7 @@ class SearchGameItem extends React.Component {
           <Card.Header>{this.props.game.title}</Card.Header>
           <Card.Body>
             <blockquote className="blockquote mb-0">
-              <img src={this.props.game.poster}></img>
+              <img src={this.props.game.cover}></img>
               <footer>
                 Gerne:  {this.props.game.genre} <br />
                 Year:  {this.props.game.year}
