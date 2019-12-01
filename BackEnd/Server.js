@@ -54,6 +54,7 @@ app.get('/api/games2/:SearchBy/:Search', (req, res) => {
     var SearchUse = req.params.SearchBy;
     var SearchTerm = req.params.Search;
 
+
     /*gameModel.find({ genre: SearchTerm }, (error, data) => {
 
         res.json({ games: data });
@@ -62,17 +63,20 @@ app.get('/api/games2/:SearchBy/:Search', (req, res) => {
     })
 */
     //console.log(SearchUse + " " + SearchTerm);
+
+    //code from stackoverflow "$regex": SearchTerm , "$options": "i" 
     if (SearchUse == "year") {
-        gameModel.find({ year: SearchTerm }, (error, data) => {
+        gameModel.find({ year: { "$regex": SearchTerm , "$options": "i" }}, (error, data) => {
 
             res.json({ games: data });
             
 
         })
-        c//onsole.log("yearin");
+        //console.log("yearin");
     }
     if (SearchUse == "title") {
-        gameModel.find({ title: SearchTerm }, (error, data) => {
+        
+        gameModel.find({ title:{ "$regex": SearchTerm , "$options": "i" }}, (error, data) => {
 
             res.json({ games: data });
 
@@ -81,7 +85,7 @@ app.get('/api/games2/:SearchBy/:Search', (req, res) => {
         //console.log("titlein");
     }
     if (SearchUse == "gerne") {
-        gameModel.find({ genre: SearchTerm }, (error, data) => {
+        gameModel.find({ genre:{ "$regex": SearchTerm , "$options": "i" }}, (error, data) => {
 
             res.json({ games: data });
 
