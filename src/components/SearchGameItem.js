@@ -5,7 +5,7 @@ import Axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
-class GameItem extends React.Component {
+class SearchGameItem extends React.Component {
   
   constructor(){
     super();
@@ -21,7 +21,7 @@ class GameItem extends React.Component {
  
   render() {
     return (
-      <div id="GameItem">
+      <div id="SearchGameItem">
         <Card>
           <Card.Header>{this.props.game.title}</Card.Header>
           <Card.Body>
@@ -44,4 +44,4 @@ class GameItem extends React.Component {
   }
 }
 
-export default GameItem;
+export default SearchGameItem;

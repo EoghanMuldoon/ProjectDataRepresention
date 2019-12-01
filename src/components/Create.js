@@ -44,7 +44,7 @@ class  Create extends React.Component {
         genre: this.state.Genre,
         poster: this.state.Poster
       }
-
+      
     axios.post('http://localhost:4000/api/games', newgame)
     .then()
     .catch();
